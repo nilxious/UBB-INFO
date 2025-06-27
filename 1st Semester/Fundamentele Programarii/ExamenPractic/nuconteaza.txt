@@ -1,0 +1,30 @@
+Artist0,c,1800,Altele
+Artist1,c,3600,Comedie
+Artist10,A,7000,Comedie
+Artist2,d,1500,Concert
+Artist5,f,3400,Comedie
+Artist6,e,900,Balet
+Artist7,g,1800,Altele
+Artist8,xy,9999,Comedie
+Artist8,yx,3600,Balet
+a,x,999999,Comedie
+bb,bbb,43434,Altele
+bcde,h,99990,Altele
+bcdea,zxyx,3600,Balet
+cepak iquzu,cenuf eboqu,4572,Altele
+cino guqu,jaha nope,6074,Balet
+civuk ivuqo,neja buwimu,3071,Altele
+kuna raqero,jorow ixozi,6951,Balet
+mame wogu,muvah agufo,2522,Concert
+muwir ukawu,nafe tedija,6504,Comedie
+nustiu,nustiu,48,Comedie
+nustiu2,nustiu2,49,Altele
+nuxe toniji,joxu muvemi,3453,Comedie
+nuxe toniji,joxu muvemi,2753,Altele
+pati vawimi,tape tagu,4489,Altele
+pera dera,zoqe maleje,9999,Altele
+pifa nakowi,kalir irovi,4750,Balet
+qivo latigi,hibe rehiri,4308,Comedie
+valid2,valid1,452,Comedie
+xavew ugexo,tadip apewe,2178,Comedie
+xila vawequ,keda tipaja,5599,Altele
