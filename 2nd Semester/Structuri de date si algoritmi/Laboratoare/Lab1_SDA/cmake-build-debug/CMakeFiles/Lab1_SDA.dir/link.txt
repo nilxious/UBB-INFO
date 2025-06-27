@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Lab1_SDA.dir/IteratorColectie.cpp.o CMakeFiles/Lab1_SDA.dir/TestExtins.cpp.o CMakeFiles/Lab1_SDA.dir/TestScurt.cpp.o CMakeFiles/Lab1_SDA.dir/Colectie.cpp.o CMakeFiles/Lab1_SDA.dir/App.cpp.o -o Lab1_SDA
