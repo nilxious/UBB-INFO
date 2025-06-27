@@ -1,3 +1,0 @@
-Ceva1,Artist1,Concert,1500
-Ceva2,Artist2,Comedie,3600
-Ceva3,Artist3,Altele,1800
