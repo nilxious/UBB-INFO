@@ -1,3 +1,0 @@
-/mnt/c/Users/Catalin/Documents/Lab1_SDA/cmake-build-debug/CMakeFiles/Lab1_SDA.dir
-/mnt/c/Users/Catalin/Documents/Lab1_SDA/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Catalin/Documents/Lab1_SDA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
