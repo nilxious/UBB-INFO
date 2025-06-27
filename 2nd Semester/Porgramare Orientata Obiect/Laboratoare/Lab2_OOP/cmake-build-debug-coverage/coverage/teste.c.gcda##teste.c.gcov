@@ -1,0 +1,1034 @@
+        -:    0:Source:C:/Users/Catalin/Documents/Lab2_OOP/teste/teste.c
+        -:    0:Graph:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\teste\teste.c.gcno
+        -:    0:Data:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\teste\teste.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "teste.h"
+        -:    2:#include "../controller/Service.h"
+        -:    3:#include "../repository/Repository.h"
+        -:    4:#include "../validator/Validator.h"
+        -:    5:#include <assert.h>
+        -:    6:#include <string.h>
+        -:    7:#include <stdio.h>
+        -:    8:
+function ruleaza_teste_adaugare_repo called 1 returned 100% blocks executed 75%
+        1:    9:void ruleaza_teste_adaugare_repo() {
+        -:   10:    int result;
+        1:   11:    Repository repo = creeaza_repository();
+        1:   11-block  0
+call    0 returned 1
+        -:   12:
+        1:   13:    Medicament medicament1 = creeazaMedicament(123, "Medicament1", 40, 40);
+call    0 returned 1
+        -:   14:
+        1:   15:    result = adauga_medicament(&repo, medicament1);
+call    0 returned 1
+       1*:   16:    assert(result == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   16-block  0
+call    2 never executed
+        1:   16-block  1
+        -:   17:
+       1*:   18:    assert(repo.stoc_curent == 1);
+        1:   18-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   18-block  1
+call    2 never executed
+        1:   18-block  2
+       1*:   19:    assert(repo.stoc[0].cod == 123);
+        1:   19-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   19-block  1
+call    2 never executed
+        1:   19-block  2
+       1*:   20:    assert(strcmp(repo.stoc[0].nume, "Medicament1") == 0);
+        1:   20-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   20-block  1
+call    2 never executed
+        1:   20-block  2
+        -:   21:
+        1:   22:    Medicament medicament2 = creeazaMedicament(123, "Medicament2", 30, 60);
+        1:   22-block  0
+call    0 returned 1
+        1:   23:    result = adauga_medicament(&repo, medicament2);
+call    0 returned 1
+       1*:   24:    assert(result == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   24-block  0
+call    2 never executed
+        1:   24-block  1
+        -:   25:
+        1:   26:    Medicament medicament3 = creeazaMedicament(123, "Medicament1", 40, 100);
+        1:   26-block  0
+call    0 returned 1
+        1:   27:    result = adauga_medicament(&repo, medicament3);
+call    0 returned 1
+       1*:   28:    assert(result == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   28-block  0
+call    2 never executed
+        1:   28-block  1
+       1*:   29:    assert(repo.stoc[0].cantitate == 140);
+        1:   29-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   29-block  1
+call    2 never executed
+        1:   29-block  2
+        -:   30:
+        1:   31:    Medicament medicament4 = creeazaMedicament(124, "Medicament4", 50, 20);
+        1:   31-block  0
+call    0 returned 1
+        1:   32:    result = adauga_medicament(&repo, medicament4);
+call    0 returned 1
+       1*:   33:    assert(result == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   33-block  0
+call    2 never executed
+        1:   33-block  1
+       1*:   34:    assert(repo.stoc_curent == 2);
+        1:   34-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   34-block  1
+call    2 never executed
+        1:   34-block  2
+       1*:   35:    assert(repo.stoc[1].cod == 124);
+        1:   35-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   35-block  1
+call    2 never executed
+        1:   35-block  2
+       1*:   36:    assert(strcmp(repo.stoc[1].nume, "Medicament4") == 0);
+        1:   36-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   36-block  1
+call    2 never executed
+        1:   36-block  2
+        -:   37:
+        1:   38:    repo.stoc_curent = 100;
+        1:   39:    Medicament medicament5 = creeazaMedicament(125, "Medicament5", 50, 30);
+        1:   39-block  0
+call    0 returned 1
+        1:   40:    result = adauga_medicament(&repo, medicament5);
+call    0 returned 1
+       1*:   41:    assert(result == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   41-block  0
+call    2 never executed
+        1:   41-block  1
+        1:   42:}
+        -:   43:
+function ruleaza_teste_modificare_repo called 1 returned 100% blocks executed 76%
+        1:   44:void ruleaza_teste_modificare_repo() {
+        -:   45:    int result;
+        1:   46:    Repository repo = creeaza_repository();
+        1:   46-block  0
+call    0 returned 1
+        -:   47:
+        1:   48:    Medicament medicament1 = creeazaMedicament(123, "Medicament1", 40, 40);
+call    0 returned 1
+        1:   49:    adauga_medicament(&repo, medicament1);
+call    0 returned 1
+        -:   50:
+        1:   51:    result = modifica_medicament(&repo, 123, "UpdatedMedicament", 50, 60);
+call    0 returned 1
+        -:   52:
+       1*:   53:    assert(result == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   53-block  0
+call    2 never executed
+        1:   53-block  1
+       1*:   54:    assert(strcmp(repo.stoc[0].nume, "UpdatedMedicament") == 0);
+        1:   54-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   54-block  1
+call    2 never executed
+        1:   54-block  2
+       1*:   55:    assert(repo.stoc[0].cantitate == 60);
+        1:   55-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   55-block  1
+call    2 never executed
+        1:   55-block  2
+       1*:   56:    assert(repo.stoc[0].concentratie == 50);
+        1:   56-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   56-block  1
+call    2 never executed
+        1:   56-block  2
+        -:   57:
+        1:   58:    result = modifica_medicament(&repo, 999, "NonExistent", 50, 50);
+        1:   58-block  0
+call    0 returned 1
+       1*:   59:    assert(result == -1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   59-block  0
+call    2 never executed
+        1:   59-block  1
+        1:   60:}
+        -:   61:
+function ruleaza_teste_stergere_repo called 1 returned 100% blocks executed 79%
+        1:   62:void ruleaza_teste_stergere_repo() {
+        -:   63:    int result;
+        1:   64:    Repository repo = creeaza_repository();
+        1:   64-block  0
+call    0 returned 1
+        -:   65:
+        1:   66:    Medicament medicament1 = creeazaMedicament(123, "Medicament1", 40, 40);
+call    0 returned 1
+        1:   67:    Medicament medicament2 = creeazaMedicament(124, "Medicament2", 77, 40);
+call    0 returned 1
+        -:   68:
+        1:   69:    adauga_medicament(&repo, medicament1);
+call    0 returned 1
+        -:   70:
+        1:   71:    result = sterge_medicament(&repo, 123);
+call    0 returned 1
+       1*:   72:    assert(result == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   72-block  0
+call    2 never executed
+        1:   72-block  1
+       1*:   73:    assert(repo.stoc_curent == 0);
+        1:   73-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   73-block  1
+call    2 never executed
+        1:   73-block  2
+        -:   74:
+        1:   75:    result = sterge_medicament(&repo, 122);
+        1:   75-block  0
+call    0 returned 1
+       1*:   76:    assert(result == -3);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   76-block  0
+call    2 never executed
+        1:   76-block  1
+       1*:   77:    assert(repo.stoc_curent == 0);
+        1:   77-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   77-block  1
+call    2 never executed
+        1:   77-block  2
+        -:   78:
+        1:   79:    adauga_medicament(&repo, medicament2);
+        1:   79-block  0
+call    0 returned 1
+        1:   80:    result = sterge_medicament(&repo, 999);
+call    0 returned 1
+       1*:   81:    assert(result == -1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   81-block  0
+call    2 never executed
+        1:   81-block  1
+        1:   82:}
+        -:   83:
+function ruleaza_teste_add_service called 1 returned 100% blocks executed 77%
+        1:   84:void ruleaza_teste_add_service() {
+        -:   85:    int rezultat;
+        1:   86:    Repository repo = creeaza_repository();
+        1:   86-block  0
+call    0 returned 1
+        1:   87:    Validator validator = creeaza_validator();
+call    0 returned 1
+        1:   88:    Service service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:   89:
+        1:   90:    rezultat = add_medicament(&service, 123, "Medicament1", 40, 40);
+call    0 returned 1
+       1*:   91:    assert(rezultat == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   91-block  0
+call    2 never executed
+        1:   91-block  1
+        -:   92:
+        1:   93:    rezultat = add_medicament(&service, 1234, "Medicament1", 40, 40);
+        1:   93-block  0
+call    0 returned 1
+       1*:   94:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   94-block  0
+call    2 never executed
+        1:   94-block  1
+        -:   95:
+        1:   96:    rezultat = add_medicament(&service, 123, "Medicament1", -4, 40);
+        1:   96-block  0
+call    0 returned 1
+       1*:   97:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   97-block  0
+call    2 never executed
+        1:   97-block  1
+        -:   98:
+        1:   99:    rezultat = add_medicament(&service, 1234, "Medicament1", 0, 40);
+        1:   99-block  0
+call    0 returned 1
+       1*:  100:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  100-block  0
+call    2 never executed
+        1:  100-block  1
+        -:  101:
+        1:  102:    rezultat = add_medicament(&service, -4, "Medicament1", 0, 0);
+        1:  102-block  0
+call    0 returned 1
+       1*:  103:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  103-block  0
+call    2 never executed
+        1:  103-block  1
+        -:  104:
+        1:  105:    rezultat = add_medicament(&service, 99, "Medicament1", 0, -4);
+        1:  105-block  0
+call    0 returned 1
+       1*:  106:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  106-block  0
+call    2 never executed
+        1:  106-block  1
+        -:  107:
+        1:  108:    rezultat = add_medicament(&service, 1000, "Medicament1", -40, -4);
+        1:  108-block  0
+call    0 returned 1
+       1*:  109:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  109-block  0
+call    2 never executed
+        1:  109-block  1
+        -:  110:
+        1:  111:    rezultat = add_medicament(&service, 123, "jnjnikoo", 66, 66);
+        1:  111-block  0
+call    0 returned 1
+       1*:  112:    assert(rezultat == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  112-block  0
+call    2 never executed
+        1:  112-block  1
+        -:  113:
+        1:  114:    rezultat = add_medicament(&service, 123, "Medicament1", 40, 66);
+        1:  114-block  0
+call    0 returned 1
+       1*:  115:    assert(rezultat == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  115-block  0
+call    2 never executed
+        1:  115-block  1
+        -:  116:
+        1:  117:    service.repo->stoc_curent = 100;
+        1:  118:    rezultat = add_medicament(&service, 123, "Medicament2", 66, 66);
+        1:  118-block  0
+call    0 returned 1
+       1*:  119:    assert(rezultat == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  119-block  0
+call    2 never executed
+        1:  119-block  1
+        -:  120:
+        1:  121:}
+        -:  122:
+function ruleaza_teste_remove_service called 1 returned 100% blocks executed 80%
+        1:  123:void ruleaza_teste_remove_service() {
+        -:  124:    int rezultat;
+        1:  125:    Repository repo = creeaza_repository();
+        1:  125-block  0
+call    0 returned 1
+        1:  126:    Validator validator = creeaza_validator();
+call    0 returned 1
+        1:  127:    Service service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:  128:
+        1:  129:    rezultat = add_medicament(&service, 123, "Medicament1", 40, 40);
+call    0 returned 1
+        1:  130:    rezultat = add_medicament(&service, 124, "Medicament2", 60, 50);
+call    0 returned 1
+        -:  131:
+        1:  132:    rezultat = remove_medicament(&service, 123);
+call    0 returned 1
+       1*:  133:    assert(rezultat == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  133-block  0
+call    2 never executed
+        1:  133-block  1
+        -:  134:
+        1:  135:    rezultat = remove_medicament(&service, 1234);
+        1:  135-block  0
+call    0 returned 1
+       1*:  136:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  136-block  0
+call    2 never executed
+        1:  136-block  1
+        -:  137:
+        1:  138:    rezultat = remove_medicament(&service, 99);
+        1:  138-block  0
+call    0 returned 1
+       1*:  139:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  139-block  0
+call    2 never executed
+        1:  139-block  1
+        -:  140:
+        1:  141:    rezultat = remove_medicament(&service, 125);
+        1:  141-block  0
+call    0 returned 1
+       1*:  142:    assert(rezultat == -1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  142-block  0
+call    2 never executed
+        1:  142-block  1
+        -:  143:
+        1:  144:    rezultat = remove_medicament(&service, 124);
+        1:  144-block  0
+call    0 returned 1
+       1*:  145:    assert(rezultat == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  145-block  0
+call    2 never executed
+        1:  145-block  1
+        -:  146:
+        1:  147:    rezultat = remove_medicament(&service, 123);
+        1:  147-block  0
+call    0 returned 1
+       1*:  148:    assert(rezultat == -3);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  148-block  0
+call    2 never executed
+        1:  148-block  1
+        -:  149:
+        1:  150:}
+        -:  151:
+function ruleaza_teste_modify_service called 1 returned 100% blocks executed 76%
+        1:  152:void ruleaza_teste_modify_service() {
+        -:  153:    int rezultat;
+        1:  154:    Repository repo = creeaza_repository();
+        1:  154-block  0
+call    0 returned 1
+        1:  155:    Validator validator = creeaza_validator();
+call    0 returned 1
+        1:  156:    Service service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:  157:
+        1:  158:    add_medicament(&service, 123, "Medicament1", 40, 50);
+call    0 returned 1
+        -:  159:
+        1:  160:    rezultat = modify_medicament(&service, 124, "MedicamentModificat", 40, 50);
+call    0 returned 1
+       1*:  161:    assert(rezultat == -1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  161-block  0
+call    2 never executed
+        1:  161-block  1
+        -:  162:
+        1:  163:    rezultat = modify_medicament(&service, 123, "MedModificat", 99, 99);
+        1:  163-block  0
+call    0 returned 1
+       1*:  164:    assert(rezultat == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  164-block  0
+call    2 never executed
+        1:  164-block  1
+       1*:  165:    assert(service.repo->stoc[0].cod == 123);
+        1:  165-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  165-block  1
+call    2 never executed
+        1:  165-block  2
+       1*:  166:    assert(strcmp(service.repo->stoc[0].nume, "MedModificat") == 0);
+        1:  166-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  166-block  1
+call    2 never executed
+        1:  166-block  2
+       1*:  167:    assert(service.repo->stoc[0].concentratie == 99);
+        1:  167-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  167-block  1
+call    2 never executed
+        1:  167-block  2
+       1*:  168:    assert(service.repo->stoc[0].cantitate == 99);
+        1:  168-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  168-block  1
+call    2 never executed
+        1:  168-block  2
+        -:  169:
+        1:  170:    rezultat = modify_medicament(&service, 123, "MedModificat", 0, 7);
+        1:  170-block  0
+call    0 returned 1
+       1*:  171:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  171-block  0
+call    2 never executed
+        1:  171-block  1
+        -:  172:
+        1:  173:    rezultat = modify_medicament(&service, 123, "MedModificat", -4, 6);
+        1:  173-block  0
+call    0 returned 1
+       1*:  174:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  174-block  0
+call    2 never executed
+        1:  174-block  1
+        -:  175:
+        1:  176:    rezultat = modify_medicament(&service, 1234, "MedModificat", 4, 6);
+        1:  176-block  0
+call    0 returned 1
+       1*:  177:    assert(rezultat == -7);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  177-block  0
+call    2 never executed
+        1:  177-block  1
+        -:  178:
+        1:  179:}
+        -:  180:
+function ruleaza_teste_ordered1_service called 1 returned 100% blocks executed 86%
+        1:  181:void ruleaza_teste_ordered1_service() {
+        1:  182:    Repository repo = creeaza_repository();
+        1:  182-block  0
+call    0 returned 1
+        1:  183:    Validator validator = creeaza_validator();
+call    0 returned 1
+        1:  184:    Service service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:  185:
+        1:  186:    add_medicament(&service, 123, "Xanax", 20 , 100);
+call    0 returned 1
+        1:  187:    add_medicament(&service, 124, "Fentanil", 15 , 80);
+call    0 returned 1
+        1:  188:    add_medicament(&service, 125, "Morfina", 40 , 50);
+call    0 returned 1
+        1:  189:    add_medicament(&service, 126, "Amfetamina", 60 , 30);
+call    0 returned 1
+        1:  190:    add_medicament(&service, 127, "Paracetamol", 30 , 40);
+call    0 returned 1
+        1:  191:    add_medicament(&service, 128, "Ibuprofen", 25 , 70);
+call    0 returned 1
+        1:  192:    add_medicament(&service, 129, "Magneziu", 77, 120);
+call    0 returned 1
+        -:  193:
+        -:  194:    Medicament rezultat_expectat[100];
+        1:  195:    rezultat_expectat[0] = creeazaMedicament(126, "Amfetamina", 60 , 30);
+call    0 returned 1
+        1:  196:    rezultat_expectat[1] = creeazaMedicament(124, "Fentanil", 15 , 80);
+call    0 returned 1
+        1:  197:    rezultat_expectat[2] = creeazaMedicament(128, "Ibuprofen", 25 , 70);
+call    0 returned 1
+        1:  198:    rezultat_expectat[3] = creeazaMedicament(129, "Magneziu", 77, 120);
+call    0 returned 1
+        1:  199:    rezultat_expectat[4] = creeazaMedicament(125, "Morfina", 40 , 50);
+call    0 returned 1
+        1:  200:    rezultat_expectat[5] = creeazaMedicament(127, "Paracetamol", 30 , 40);
+call    0 returned 1
+        1:  201:    rezultat_expectat[6] = creeazaMedicament(123, "Xanax", 20 , 100);
+call    0 returned 1
+        -:  202:
+        1:  203:    Medicament* rezultat_actual = ordered1(&service, 1);
+call    0 returned 1
+        -:  204:
+        -:  205:
+        8:  206:    for(int i=0; i<service.repo->stoc_curent; i++) {
+        7:  206-block  0
+        8:  206-block  1
+branch  0 taken 7
+branch  1 taken 1 (fallthrough)
+       7*:  207:        assert(rezultat_expectat[i].cod == rezultat_actual[i].cod);
+        7:  207-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  207-block  1
+call    2 never executed
+        7:  207-block  2
+       7*:  208:        assert(strcmp(rezultat_expectat[i].nume, rezultat_actual[i].nume) == 0);
+        7:  208-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  208-block  1
+call    2 never executed
+        7:  208-block  2
+       7*:  209:        assert(rezultat_expectat[i].concentratie == rezultat_actual[i].concentratie);
+        7:  209-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  209-block  1
+call    2 never executed
+        7:  209-block  2
+       7*:  210:        assert(rezultat_expectat[i].cantitate == rezultat_actual[i].cantitate);
+        7:  210-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  210-block  1
+call    2 never executed
+        7:  210-block  2
+        -:  211:    }
+        -:  212:
+        -:  213:
+        1:  214:    Medicament* rezultat_actual2 = ordered1(&service, -1);
+        1:  214-block  0
+call    0 returned 1
+        1:  215:    rezultat_expectat[6] = creeazaMedicament(126, "Amfetamina", 60 , 30);
+call    0 returned 1
+        1:  216:    rezultat_expectat[5] = creeazaMedicament(124, "Fentanil", 15 , 80);
+call    0 returned 1
+        1:  217:    rezultat_expectat[4] = creeazaMedicament(128, "Ibuprofen", 25 , 70);
+call    0 returned 1
+        1:  218:    rezultat_expectat[3] = creeazaMedicament(129, "Magneziu", 77, 120);
+call    0 returned 1
+        1:  219:    rezultat_expectat[2] = creeazaMedicament(125, "Morfina", 40 , 50);
+call    0 returned 1
+        1:  220:    rezultat_expectat[1] = creeazaMedicament(127, "Paracetamol", 30 , 40);
+call    0 returned 1
+        1:  221:    rezultat_expectat[0] = creeazaMedicament(123, "Xanax", 20 , 100);
+call    0 returned 1
+        -:  222:
+        8:  223:    for(int i=0; i<service.repo->stoc_curent; i++) {
+        7:  223-block  0
+        8:  223-block  1
+branch  0 taken 7
+branch  1 taken 1 (fallthrough)
+       7*:  224:        assert(rezultat_expectat[i].cod == rezultat_actual2[i].cod);
+        7:  224-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  224-block  1
+call    2 never executed
+        7:  224-block  2
+       7*:  225:        assert(strcmp(rezultat_expectat[i].nume, rezultat_actual2[i].nume) == 0);
+        7:  225-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  225-block  1
+call    2 never executed
+        7:  225-block  2
+       7*:  226:        assert(rezultat_expectat[i].concentratie == rezultat_actual2[i].concentratie);
+        7:  226-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  226-block  1
+call    2 never executed
+        7:  226-block  2
+       7*:  227:        assert(rezultat_expectat[i].cantitate == rezultat_actual2[i].cantitate);
+        7:  227-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  227-block  1
+call    2 never executed
+        7:  227-block  2
+        -:  228:    }
+        1:  229:}
+        -:  230:
+function ruleaza_teste_ordered2_service called 1 returned 100% blocks executed 88%
+        1:  231:void ruleaza_teste_ordered2_service() {
+        1:  232:    Repository repo = creeaza_repository();
+        1:  232-block  0
+call    0 returned 1
+        1:  233:    Validator validator = creeaza_validator();
+call    0 returned 1
+        1:  234:    Service service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:  235:
+        1:  236:    add_medicament(&service, 123, "Xanax", 20 , 100);
+call    0 returned 1
+        1:  237:    add_medicament(&service, 124, "Fentanil", 15 , 80);
+call    0 returned 1
+        1:  238:    add_medicament(&service, 125, "Morfina", 40 , 50);
+call    0 returned 1
+        1:  239:    add_medicament(&service, 126, "Amfetamina", 60 , 30);
+call    0 returned 1
+        1:  240:    add_medicament(&service, 127, "Paracetamol", 30 , 40);
+call    0 returned 1
+        1:  241:    add_medicament(&service, 128, "Ibuprofen", 25 , 70);
+call    0 returned 1
+        1:  242:    add_medicament(&service, 129, "Magneziu", 77, 120);
+call    0 returned 1
+        -:  243:
+        -:  244:    Medicament rezultat_expectat[100];
+        1:  245:    rezultat_expectat[0] = creeazaMedicament(126, "Amfetamina", 60 , 30);
+call    0 returned 1
+        1:  246:    rezultat_expectat[1] = creeazaMedicament(127, "Paracetamol", 30 , 40);
+call    0 returned 1
+        1:  247:    rezultat_expectat[2] = creeazaMedicament(125, "Morfina", 40 , 50);
+call    0 returned 1
+        1:  248:    rezultat_expectat[3] = creeazaMedicament(128, "Ibuprofen", 25 , 70);
+call    0 returned 1
+        1:  249:    rezultat_expectat[4] = creeazaMedicament(124, "Fentanil", 15 , 80);
+call    0 returned 1
+        1:  250:    rezultat_expectat[5] = creeazaMedicament(123, "Xanax", 20 , 100);
+call    0 returned 1
+        1:  251:    rezultat_expectat[6] = creeazaMedicament(129, "Magneziu", 77, 120);
+call    0 returned 1
+        -:  252:
+        1:  253:    Medicament* rezultat_actual = ordered2(&service, 1);
+call    0 returned 1
+        -:  254:
+        8:  255:    for(int i=0; i<service.repo->stoc_curent; i++) {
+        7:  255-block  0
+        8:  255-block  1
+branch  0 taken 7
+branch  1 taken 1 (fallthrough)
+       7*:  256:        assert(rezultat_expectat[i].cod == rezultat_actual[i].cod);
+        7:  256-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  256-block  1
+call    2 never executed
+        7:  256-block  2
+       7*:  257:        assert(strcmp(rezultat_expectat[i].nume, rezultat_actual[i].nume) == 0);
+        7:  257-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  257-block  1
+call    2 never executed
+        7:  257-block  2
+       7*:  258:        assert(rezultat_expectat[i].concentratie == rezultat_actual[i].concentratie);
+        7:  258-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  258-block  1
+call    2 never executed
+        7:  258-block  2
+       7*:  259:        assert(rezultat_expectat[i].cantitate == rezultat_actual[i].cantitate);
+        7:  259-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 7
+    %%%%%:  259-block  1
+call    2 never executed
+        7:  259-block  2
+        -:  260:    }
+        1:  261:}
+        -:  262:
+function ruleaza_teste_filter1_service called 1 returned 100% blocks executed 85%
+        1:  263:void ruleaza_teste_filter1_service() {
+        1:  264:    Repository repo = creeaza_repository();
+        1:  264-block  0
+call    0 returned 1
+        1:  265:    Validator validator = creeaza_validator();
+call    0 returned 1
+        1:  266:    Service service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:  267:
+        1:  268:    add_medicament(&service, 123, "Xanax", 20 , 100);
+call    0 returned 1
+        1:  269:    add_medicament(&service, 124, "Fentanil", 15 , 80);
+call    0 returned 1
+        1:  270:    add_medicament(&service, 125, "Morfina", 40 , 50);
+call    0 returned 1
+        1:  271:    add_medicament(&service, 126, "Amfetamina", 60 , 30);
+call    0 returned 1
+        1:  272:    add_medicament(&service, 127, "Paracetamol", 30 , 40);
+call    0 returned 1
+        1:  273:    add_medicament(&service, 128, "Ibuprofen", 25 , 70);
+call    0 returned 1
+        1:  274:    add_medicament(&service, 129, "Magneziu", 77, 120);
+call    0 returned 1
+        -:  275:
+        1:  276:    int cantitate_test = 70;
+        -:  277:    MedicamentList rezultat_expectat;
+        -:  278:
+        1:  279:    rezultat_expectat.medicamente[0] = creeazaMedicament(125, "Morfina", 40, 50);
+call    0 returned 1
+        1:  280:    rezultat_expectat.medicamente[1] = creeazaMedicament(126, "Amfetamina", 60, 30);
+call    0 returned 1
+        1:  281:    rezultat_expectat.medicamente[2] = creeazaMedicament(127, "Paracetamol", 30, 40);
+call    0 returned 1
+        1:  282:    rezultat_expectat.size = 3;
+        -:  283:
+        1:  284:    MedicamentList rezultat_actual = filter1(&service, cantitate_test);
+call    0 returned 1
+        -:  285:
+       1*:  286:    assert(rezultat_expectat.size == rezultat_actual.size);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  286-block  0
+call    2 never executed
+        1:  286-block  1
+        -:  287:
+        4:  288:    for(int i=0; i<rezultat_expectat.size; i++) {
+        1:  288-block  0
+        3:  288-block  1
+        4:  288-block  2
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+       3*:  289:        assert(rezultat_expectat.medicamente[i].cod == rezultat_actual.medicamente[i].cod);
+        3:  289-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+    %%%%%:  289-block  1
+call    2 never executed
+        3:  289-block  2
+       3*:  290:        assert(strcmp(rezultat_expectat.medicamente[i].nume, rezultat_actual.medicamente[i].nume) == 0);
+        3:  290-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+    %%%%%:  290-block  1
+call    2 never executed
+        3:  290-block  2
+       3*:  291:        assert(rezultat_expectat.medicamente[i].concentratie == rezultat_actual.medicamente[i].concentratie);
+        3:  291-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+    %%%%%:  291-block  1
+call    2 never executed
+        3:  291-block  2
+       3*:  292:        assert(rezultat_expectat.medicamente[i].cantitate == rezultat_actual.medicamente[i].cantitate);
+        3:  292-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 3
+    %%%%%:  292-block  1
+call    2 never executed
+        3:  292-block  2
+        -:  293:    }
+        -:  294:
+        1:  295:}
+        -:  296:
+function ruleaza_teste_filter2_service called 1 returned 100% blocks executed 84%
+        1:  297:void ruleaza_teste_filter2_service() {
+        1:  298:    Repository repo = creeaza_repository();
+        1:  298-block  0
+call    0 returned 1
+        1:  299:    Validator validator = creeaza_validator();
+call    0 returned 1
+        1:  300:    Service service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:  301:
+        1:  302:    add_medicament(&service, 123, "Xanax", 20 , 100);
+call    0 returned 1
+        1:  303:    add_medicament(&service, 124, "Fentanil", 15 , 80);
+call    0 returned 1
+        1:  304:    add_medicament(&service, 125, "Morfina", 40 , 50);
+call    0 returned 1
+        1:  305:    add_medicament(&service, 126, "Amfetamina", 60 , 30);
+call    0 returned 1
+        1:  306:    add_medicament(&service, 127, "Paracetamol", 30 , 40);
+call    0 returned 1
+        1:  307:    add_medicament(&service, 128, "Ibuprofen", 25 , 70);
+call    0 returned 1
+        1:  308:    add_medicament(&service, 129, "Magneziu", 77, 120);
+call    0 returned 1
+        -:  309:
+        1:  310:    char litera_test = 'M';
+        -:  311:    MedicamentList rezultat_expectat;
+        -:  312:
+        1:  313:    rezultat_expectat.medicamente[0] = creeazaMedicament(125, "Morfina", 40, 50);
+call    0 returned 1
+        1:  314:    rezultat_expectat.medicamente[1] = creeazaMedicament(129, "Magneziu", 77, 120);
+call    0 returned 1
+        1:  315:    rezultat_expectat.size = 2;
+        -:  316:
+        1:  317:    MedicamentList rezultat_actual = filter2(&service, litera_test);
+call    0 returned 1
+        -:  318:
+       1*:  319:    assert(rezultat_expectat.size == rezultat_actual.size);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  319-block  0
+call    2 never executed
+        1:  319-block  1
+        -:  320:
+        3:  321:    for(int i=0; i<rezultat_expectat.size; i++) {
+        1:  321-block  0
+        2:  321-block  1
+        3:  321-block  2
+branch  0 taken 2
+branch  1 taken 1 (fallthrough)
+       2*:  322:        assert(rezultat_expectat.medicamente[i].cod == rezultat_actual.medicamente[i].cod);
+        2:  322-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    %%%%%:  322-block  1
+call    2 never executed
+        2:  322-block  2
+       2*:  323:        assert(strcmp(rezultat_expectat.medicamente[i].nume, rezultat_actual.medicamente[i].nume) == 0);
+        2:  323-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    %%%%%:  323-block  1
+call    2 never executed
+        2:  323-block  2
+       2*:  324:        assert(rezultat_expectat.medicamente[i].concentratie == rezultat_actual.medicamente[i].concentratie);
+        2:  324-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    %%%%%:  324-block  1
+call    2 never executed
+        2:  324-block  2
+       2*:  325:        assert(rezultat_expectat.medicamente[i].cantitate == rezultat_actual.medicamente[i].cantitate);
+        2:  325-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    %%%%%:  325-block  1
+call    2 never executed
+        2:  325-block  2
+        -:  326:    }
+        1:  327:}
+        -:  328:
+        -:  329:
+function ruleaza_teste_repository called 1 returned 100% blocks executed 100%
+        1:  330:void ruleaza_teste_repository() {
+        1:  331:    ruleaza_teste_adaugare_repo();
+        1:  331-block  0
+call    0 returned 1
+        1:  332:    ruleaza_teste_modificare_repo();
+call    0 returned 1
+        1:  333:    ruleaza_teste_stergere_repo();
+call    0 returned 1
+        1:  334:    printf("Testele din repo au mers\n");
+call    0 returned 1
+        1:  335:}
+        -:  336:
+function ruleaza_teste_service called 1 returned 100% blocks executed 100%
+        1:  337:void ruleaza_teste_service() {
+        1:  338:    ruleaza_teste_add_service();
+        1:  338-block  0
+call    0 returned 1
+        1:  339:    ruleaza_teste_remove_service();
+call    0 returned 1
+        1:  340:    ruleaza_teste_modify_service();
+call    0 returned 1
+        1:  341:    ruleaza_teste_filter1_service();
+call    0 returned 1
+        1:  342:    ruleaza_teste_filter2_service();
+call    0 returned 1
+        1:  343:    ruleaza_teste_ordered1_service();
+call    0 returned 1
+        1:  344:    ruleaza_teste_ordered2_service();
+call    0 returned 1
+        1:  345:    printf("Testele din service au mers\n");
+call    0 returned 1
+        1:  346:}
+        -:  347:
+function ruleaza_teste_validator called 1 returned 100% blocks executed 80%
+        1:  348:void ruleaza_teste_validator() {
+        -:  349:    int erori;
+        -:  350:
+        1:  351:    Medicament medicament1 = creeazaMedicament(123, "Medicament1", 40, 40);
+        1:  351-block  0
+call    0 returned 1
+        1:  352:    Medicament medicament2 = creeazaMedicament(1234, "Medicament2", 1, 40);
+call    0 returned 1
+        1:  353:    Medicament medicament3 = creeazaMedicament(1234, "Medicament3", 0, 7);
+call    0 returned 1
+        1:  354:    Medicament medicament4 = creeazaMedicament(99, "Medicament4", -4, -7);
+call    0 returned 1
+        -:  355:
+        1:  356:    Validator validator = creeaza_validator();
+call    0 returned 1
+        -:  357:
+        1:  358:    erori = validator.valideaza_cantitate(medicament4.cantitate);
+call    0 returned 1
+       1*:  359:    assert(erori == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  359-block  0
+call    2 never executed
+        1:  359-block  1
+        -:  360:
+        1:  361:    erori = validator.valideaza_cantitate(medicament3.concentratie);
+        1:  361-block  0
+call    0 returned 1
+       1*:  362:    assert(erori == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  362-block  0
+call    2 never executed
+        1:  362-block  1
+        -:  363:
+        1:  364:    erori = validator.valideaza_cod(medicament3.cod);
+        1:  364-block  0
+call    0 returned 1
+       1*:  365:    assert(erori == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  365-block  0
+call    2 never executed
+        1:  365-block  1
+        -:  366:
+        1:  367:    erori = validator.valideaza(medicament1);
+        1:  367-block  0
+call    0 returned 1
+       1*:  368:    assert(erori == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  368-block  0
+call    2 never executed
+        1:  368-block  1
+        -:  369:
+        1:  370:    erori = validator.valideaza(medicament2);
+        1:  370-block  0
+call    0 returned 1
+       1*:  371:    assert(erori == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  371-block  0
+call    2 never executed
+        1:  371-block  1
+        -:  372:
+        1:  373:    erori = validator.valideaza(medicament3);
+        1:  373-block  0
+call    0 returned 1
+       1*:  374:    assert(erori == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  374-block  0
+call    2 never executed
+        1:  374-block  1
+        -:  375:
+        1:  376:    erori = validator.valideaza(medicament4);
+        1:  376-block  0
+call    0 returned 1
+       1*:  377:    assert(erori == 3);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  377-block  0
+call    2 never executed
+        1:  377-block  1
+        -:  378:
+        1:  379:    printf("Testele pentru validator au mers\n");
+        1:  379-block  0
+call    0 returned 1
+        1:  380:}

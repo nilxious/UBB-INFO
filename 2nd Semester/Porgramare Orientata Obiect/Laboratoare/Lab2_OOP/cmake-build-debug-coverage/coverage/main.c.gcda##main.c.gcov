@@ -1,0 +1,48 @@
+        -:    0:Source:C:/Users/Catalin/Documents/Lab2_OOP/main.c
+        -:    0:Graph:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\main.c.gcno
+        -:    0:Data:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\main.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "C:\Users\Catalin\Documents\Lab2_OOP\ui\ui.h"
+        -:    2:#include "C:\Users\Catalin\Documents\Lab2_OOP\controller\service.h"
+        -:    3:#include "C:\Users\Catalin\Documents\Lab2_OOP\repository\repository.h"
+        -:    4:#include "C:\Users\Catalin\Documents\Lab2_OOP\validator\validator.h"
+        -:    5:#include "C:\Users\Catalin\Documents\Lab2_OOP\teste\teste.h"
+        -:    6:
+        -:    7:
+function main called 1 returned 100% blocks executed 100%
+        1:    8:int main(void)
+        -:    9:{
+        -:   10:    Repository repo;
+        -:   11:    Validator validator;
+        -:   12:    Service service;
+        -:   13:    Ui ui;
+        -:   14:
+        1:   15:    repo = creeaza_repository();
+        1:   15-block  0
+call    0 returned 1
+        1:   16:    validator = creeaza_validator();
+call    0 returned 1
+        1:   17:    service = creeaza_service(&repo, &validator);
+call    0 returned 1
+        -:   18:    // ui = creeaza_ui(&service);
+        -:   19:
+        1:   20:    ruleaza_teste_repository();
+call    0 returned 1
+        1:   21:    ruleaza_teste_validator();
+call    0 returned 1
+        1:   22:    ruleaza_teste_service();
+call    0 returned 1
+        -:   23:/*
+        -:   24:    add_medicament(&service, 123, "Xanax", 20 , 100);
+        -:   25:    add_medicament(&service, 124, "Fentanil", 15 , 80);
+        -:   26:    add_medicament(&service, 125, "Morfina", 40 , 50);
+        -:   27:    add_medicament(&service, 126, "Amfetamina", 60 , 30);
+        -:   28:    add_medicament(&service, 127, "Paracetamol", 30 , 40);
+        -:   29:    add_medicament(&service, 128, "Ibuprofen", 25 , 70);
+        -:   30:    add_medicament(&service, 129, "Magneziu", 77, 120);
+        -:   31:
+        -:   32:    run(&ui);
+        -:   33:
+        -:   34:    return 0;
+        -:   35:    */
+        -:   36:}

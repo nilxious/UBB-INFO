@@ -1,0 +1,23 @@
+        -:    0:Source:C:/Users/Catalin/Documents/Lab2_OOP/domain/medicament.c
+        -:    0:Graph:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\domain\medicament.c.gcno
+        -:    0:Data:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\domain\medicament.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <string.h>
+        -:    2:#include "Medicament.h"
+        -:    3:
+        -:    4:
+function creeazaMedicament called 90 returned 100% blocks executed 100%
+       90:    5:Medicament creeazaMedicament(int cod, char nume[20], int concentratie, int cantitate) {
+        -:    6:    Medicament medicament_nou;
+        -:    7:
+       90:    8:    medicament_nou.cod = cod;
+       90:    9:    strncpy(medicament_nou.nume, nume, sizeof(medicament_nou.nume)-1);
+       90:   10:    medicament_nou.nume[sizeof(medicament_nou.nume)-1] = '\0';
+       90:   11:    medicament_nou.concentratie = concentratie;
+       90:   12:    medicament_nou.cantitate=cantitate;
+        -:   13:
+       90:   14:    return medicament_nou;
+       90:   14-block  0
+        -:   15:}
+        -:   16:
+        -:   17:

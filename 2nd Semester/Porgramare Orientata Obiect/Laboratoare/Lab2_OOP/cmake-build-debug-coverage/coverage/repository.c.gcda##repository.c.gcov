@@ -1,0 +1,177 @@
+        -:    0:Source:C:/Users/Catalin/Documents/Lab2_OOP/repository/repository.c
+        -:    0:Graph:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\repository\repository.c.gcno
+        -:    0:Data:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\repository\repository.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "Repository.h"
+        -:    2:#include <string.h>
+        -:    3:
+function creeaza_repository called 11 returned 100% blocks executed 100%
+       11:    4:Repository creeaza_repository() {
+        -:    5:    Repository repo;
+       11:    6:    repo.stoc_curent = 0;
+       11:    7:    return repo;
+       11:    7-block  0
+        -:    8:}
+        -:    9:
+function adauga_medicament called 43 returned 100% blocks executed 100%
+       43:   10:int adauga_medicament(Repository* repo, Medicament medicament_nou) {
+        -:   11:    Medicament medicament;
+       43:   12:    int gasit = 0;
+       43:   13:    int index = 0;
+       43:   14:    int dejaExistaCod = 0;
+       43:   15:    if (repo->stoc_curent < 100) {
+       43:   15-block  0
+branch  0 taken 41 (fallthrough)
+branch  1 taken 2
+      127:   16:        for (int i = 0; i<repo->stoc_curent; i++) {
+       41:   16-block  0
+       86:   16-block  1
+      127:   16-block  2
+branch  0 taken 90
+branch  1 taken 37 (fallthrough)
+       90:   17:            medicament = repo->stoc[i];
+       90:   18:            if (medicament_nou.cod == medicament.cod && strcmp(medicament_nou.nume, medicament.nume) == 0 && \
+       90:   18-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 86
+        4:   18-block  1
+branch  2 taken 2 (fallthrough)
+branch  3 taken 2
+        2:   19:            medicament.concentratie == medicament_nou.concentratie) {
+        2:   19-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        2:   20:                gasit = 1;
+        2:   21:                index = i;
+        2:   22:                break;
+        2:   22-block  0
+        -:   23:            }
+       88:   24:            else if (medicament_nou.cod == medicament.cod) {
+       88:   24-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 86
+        2:   25:                dejaExistaCod = 1;
+        2:   26:                index = i;
+        2:   27:                break;
+        2:   27-block  0
+        -:   28:            }
+        -:   29:        }
+        -:   30:
+       41:   31:        if (gasit){
+       41:   31-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 39
+        2:   32:            repo->stoc[index].cantitate += medicament_nou.cantitate;
+        2:   33:            return 2;
+        2:   33-block  0
+        -:   34:        }
+       39:   35:        else if (!dejaExistaCod || repo->stoc_curent == 0) {
+       39:   35-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 37
+        2:   35-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 2
+       37:   36:            repo->stoc[repo->stoc_curent] = medicament_nou;
+       37:   37:            repo->stoc_curent += 1;
+       37:   38:            return 1;
+       37:   38-block  0
+        -:   39:        }
+        2:   40:        return 0;
+        2:   40-block  0
+        -:   41:    }
+        -:   42:    else {
+        2:   43:        return 0;
+        2:   43-block  0
+        -:   44:    }
+        -:   45:}
+        -:   46:
+function modifica_medicament called 4 returned 100% blocks executed 100%
+        4:   47:int modifica_medicament(Repository* repo, int cod, char* nume, int concentratie, int cantitate) {
+        -:   48:    Medicament medicament;
+        4:   49:    int gasit = 0;
+        6:   50:    for (int i = 0; i< repo->stoc_curent; i++) {
+        4:   50-block  0
+        2:   50-block  1
+        6:   50-block  2
+branch  0 taken 4
+branch  1 taken 2 (fallthrough)
+        4:   51:        medicament = repo -> stoc[i];
+        4:   52:        if (medicament.cod == cod) {
+        4:   52-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        2:   53:            gasit = 1;
+        -:   54:
+        2:   55:            strcpy(repo->stoc[i].nume, nume);
+        2:   56:            repo->stoc[i].cantitate = cantitate;
+        2:   57:            repo->stoc[i].concentratie = concentratie;
+        2:   58:            break;
+        2:   58-block  0
+        -:   59:        }
+        -:   60:    }
+        -:   61:
+        4:   62:    if(!gasit) {
+        4:   62-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        2:   63:        return -1;
+        2:   63-block  0
+        -:   64:    }
+        2:   65:    return 1;
+        2:   65-block  0
+        -:   66:}
+        -:   67:
+function sterge_medicament called 7 returned 100% blocks executed 100%
+        7:   68:int sterge_medicament(Repository* repo, int cod) {
+        7:   69:    if (repo->stoc_curent == 0) return -3;
+        7:   69-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 5
+        2:   69-block  1
+        -:   70:
+        5:   71:    int index = -1;
+        -:   72:
+        7:   73:    for (int i = 0; i < repo->stoc_curent; i++) {
+        5:   73-block  0
+        2:   73-block  1
+        7:   73-block  2
+branch  0 taken 5
+branch  1 taken 2 (fallthrough)
+        5:   74:        if (repo->stoc[i].cod == cod) {
+        5:   74-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 2
+        3:   75:            index = i;
+        3:   76:            break;
+        3:   76-block  0
+        -:   77:        }
+        -:   78:    }
+        -:   79:
+        5:   80:    if (index != -1) {
+        5:   80-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 2
+        4:   81:        for (int i = index; i < repo->stoc_curent - 1; i++) {
+        3:   81-block  0
+        4:   81-block  1
+branch  0 taken 1
+branch  1 taken 3 (fallthrough)
+        1:   82:            repo->stoc[i] = repo->stoc[i + 1];
+        1:   82-block  0
+        -:   83:        }
+        -:   84:
+        3:   85:        repo->stoc_curent--;
+        -:   86:
+        3:   87:        return 1;
+        3:   87-block  0
+        -:   88:    }
+        -:   89:
+        2:   90:    return -1;
+        2:   90-block  0
+        -:   91:}
+        -:   92:
+        -:   93:
+        -:   94:
+        -:   95:
+        -:   96:

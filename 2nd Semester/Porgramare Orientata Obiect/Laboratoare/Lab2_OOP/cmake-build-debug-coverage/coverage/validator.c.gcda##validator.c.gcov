@@ -1,0 +1,76 @@
+        -:    0:Source:C:/Users/Catalin/Documents/Lab2_OOP/validator/validator.c
+        -:    0:Graph:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\validator\validator.c.gcno
+        -:    0:Data:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\validator\validator.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "C:\Users\Catalin\Documents\Lab2_OOP\domain\medicament.h"
+        -:    2:#include "Validator.h"
+        -:    3:
+function valideaza_cod called 57 returned 100% blocks executed 100%
+       57:    4:int valideaza_cod(int cod) {
+       57:    5:    return (cod >= 100 && cod <= 999);
+       57:    5-block  0
+branch  0 taken 53 (fallthrough)
+branch  1 taken 4
+       53:    5-block  1
+branch  2 taken 45 (fallthrough)
+branch  3 taken 8
+       45:    5-block  2
+       12:    5-block  3
+       57:    5-block  4
+        -:    6:}
+        -:    7:
+function valideaza_concentratie called 56 returned 100% blocks executed 100%
+       56:    8:int valideaza_concentratie(int concentratie) {
+       56:    9:    return (concentratie>0);
+       56:    9-block  0
+        -:   10:}
+        -:   11:
+function valideaza_cantitate called 58 returned 100% blocks executed 100%
+       58:   12:int valideaza_cantitate(int cantitate) {
+       58:   13:    return (cantitate>0);
+       58:   13-block  0
+        -:   14:}
+        -:   15:
+function valideaza called 56 returned 100% blocks executed 100%
+       56:   16:int valideaza(Medicament medicament) {
+       56:   17:    int nrErori = 0;
+        -:   18:
+        -:   19:    int cod_de_validat, concentratie_de_validat, cantitate_de_validat;
+        -:   20:
+       56:   21:    cod_de_validat = medicament.cod;
+       56:   22:    concentratie_de_validat = medicament.concentratie;
+       56:   23:    cantitate_de_validat = medicament.cantitate;
+        -:   24:
+       56:   25:    if (!valideaza_cod(cod_de_validat)) nrErori++;
+       56:   25-block  0
+call    0 returned 56
+branch  1 taken 11 (fallthrough)
+branch  2 taken 45
+       11:   25-block  1
+       56:   26:    if (!valideaza_concentratie(concentratie_de_validat)) nrErori++;
+       56:   26-block  0
+call    0 returned 56
+branch  1 taken 9 (fallthrough)
+branch  2 taken 47
+        9:   26-block  1
+       56:   27:    if (!valideaza_cantitate(cantitate_de_validat)) nrErori++;
+       56:   27-block  0
+call    0 returned 56
+branch  1 taken 4 (fallthrough)
+branch  2 taken 52
+        4:   27-block  1
+        -:   28:
+       56:   29:    return nrErori;
+       56:   29-block  0
+        -:   30:}
+        -:   31:
+function creeaza_validator called 9 returned 100% blocks executed 100%
+        9:   32:Validator creeaza_validator() {
+        -:   33:    Validator validator;
+        9:   34:    validator.valideaza_cod = &valideaza_cod;
+        9:   35:    validator.valideaza_concentratie = &valideaza_concentratie;
+        9:   36:    validator.valideaza_cantitate = &valideaza_cantitate;
+        9:   37:    validator.valideaza = &valideaza;
+        9:   38:    return validator;
+        9:   38-block  0
+        -:   39:}

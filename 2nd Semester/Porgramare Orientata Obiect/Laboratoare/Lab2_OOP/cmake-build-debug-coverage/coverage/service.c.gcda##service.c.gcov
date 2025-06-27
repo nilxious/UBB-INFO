@@ -1,0 +1,245 @@
+        -:    0:Source:C:/Users/Catalin/Documents/Lab2_OOP/controller/service.c
+        -:    0:Graph:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\controller\service.c.gcno
+        -:    0:Data:C:\Users\Catalin\Documents\Lab2_OOP\cmake-build-debug-coverage\CMakeFiles\Lab2_OOP.dir\controller\service.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "C:\Users\Catalin\Documents\Lab2_OOP\domain\medicament.h"
+        -:    2:#include "Service.h"
+        -:    3:#include <string.h>
+        -:    4:
+function creeaza_service called 8 returned 100% blocks executed 100%
+        8:    5:Service creeaza_service(Repository* repo, Validator* validator) {
+        -:    6:    Service service;
+        -:    7:
+        8:    8:    service.repo = repo;
+        8:    9:    service.validator = validator;
+        -:   10:
+        8:   11:    return service;
+        8:   11-block  0
+        -:   12:}
+        -:   13:
+function add_medicament called 41 returned 100% blocks executed 100%
+       41:   14:int add_medicament(Service* service, int cod, char nume[20], int concentratie, int cantitate) {
+       41:   15:    Medicament medicament_fictiv = creeazaMedicament(cod, nume, concentratie, cantitate);
+       41:   15-block  0
+call    0 returned 41
+        -:   16:
+       41:   17:    if (service->validator->valideaza(medicament_fictiv) != 0) {
+call    0 returned 41
+branch  1 taken 6 (fallthrough)
+branch  2 taken 35
+        6:   18:        return -7;
+        6:   18-block  0
+        -:   19:    }
+        -:   20:
+       35:   21:    int eroare = adauga_medicament(service->repo, medicament_fictiv);
+       35:   21-block  0
+call    0 returned 35
+        -:   22:
+       35:   23:    return eroare;
+        -:   24:}
+        -:   25:
+function modify_medicament called 5 returned 100% blocks executed 100%
+        5:   26:int modify_medicament(Service* service, int cod, char* nume, int concentratie, int cantitate) {
+        5:   27:    Medicament medicament_fictiv = creeazaMedicament(cod, nume, concentratie, cantitate);
+        5:   27-block  0
+call    0 returned 5
+        -:   28:
+        5:   29:    if (service->validator->valideaza(medicament_fictiv) != 0) {
+call    0 returned 5
+branch  1 taken 3 (fallthrough)
+branch  2 taken 2
+        3:   30:        return -7;
+        3:   30-block  0
+        -:   31:    }
+        -:   32:
+        2:   33:    int eroare = modifica_medicament(service->repo, cod, nume, concentratie, cantitate);
+        2:   33-block  0
+call    0 returned 2
+        -:   34:
+        2:   35:    return eroare;
+        -:   36:
+        -:   37:}
+        -:   38:
+function remove_medicament called 6 returned 100% blocks executed 100%
+        6:   39:int remove_medicament(Service* service, int cod) {
+        6:   40:    Medicament medicament_fictiv = creeazaMedicament(cod, "Ceva", 1, 1);
+        6:   40-block  0
+call    0 returned 6
+        -:   41:
+        6:   42:    if (service->validator->valideaza(medicament_fictiv) != 0) {
+call    0 returned 6
+branch  1 taken 2 (fallthrough)
+branch  2 taken 4
+        2:   43:        return -7;
+        2:   43-block  0
+        -:   44:    }
+        -:   45:
+        4:   46:    int eroare = sterge_medicament(service->repo, cod);
+        4:   46-block  0
+call    0 returned 4
+        -:   47:
+        4:   48:    return eroare;
+        -:   49:}
+        -:   50:
+function filter1 called 1 returned 100% blocks executed 100%
+        1:   51:MedicamentList filter1(Service* service, int cantitate) {
+        -:   52:    Medicament medicamente[100];
+        1:   53:    int size = 0;
+        -:   54:
+        8:   55:    for (int i = 0; i < service->repo->stoc_curent; i++) {
+        1:   55-block  0
+        7:   55-block  1
+        8:   55-block  2
+branch  0 taken 7
+branch  1 taken 1 (fallthrough)
+        7:   56:        if (service->repo->stoc[i].cantitate < cantitate) {
+        7:   56-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 4
+        3:   57:            medicamente[size] = service->repo->stoc[i];
+        3:   58:            size++;
+        3:   58-block  0
+        -:   59:        }
+        -:   60:    }
+        -:   61:
+        -:   62:    MedicamentList result;
+        1:   63:    result.size = size;
+        4:   64:    for (int i = 0; i < size; i++) {
+        1:   64-block  0
+        4:   64-block  1
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:   65:        result.medicamente[i] = medicamente[i];
+        3:   65-block  0
+        -:   66:    }
+        -:   67:
+        1:   68:    return result;
+        1:   68-block  0
+        -:   69:}
+        -:   70:
+function filter2 called 1 returned 100% blocks executed 100%
+        1:   71:MedicamentList filter2(Service* service, char litera) {
+        -:   72:    Medicament medicamente[100];
+        1:   73:    int size = 0;
+        -:   74:
+        8:   75:    for (int i = 0; i < service->repo->stoc_curent; i++) {
+        1:   75-block  0
+        7:   75-block  1
+        8:   75-block  2
+branch  0 taken 7
+branch  1 taken 1 (fallthrough)
+        7:   76:        if (service->repo->stoc[i].nume[0] == litera) {
+        7:   76-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 5
+        2:   77:            medicamente[size] = service->repo->stoc[i];
+        2:   78:            size++;
+        2:   78-block  0
+        -:   79:        }
+        -:   80:    }
+        -:   81:
+        -:   82:    MedicamentList result;
+        1:   83:    result.size = size;
+        3:   84:    for (int i = 0; i < size; i++) {
+        1:   84-block  0
+        3:   84-block  1
+branch  0 taken 2
+branch  1 taken 1 (fallthrough)
+        2:   85:        result.medicamente[i] = medicamente[i];
+        2:   85-block  0
+        -:   86:    }
+        -:   87:
+        1:   88:    return result;
+        1:   88-block  0
+        -:   89:}
+        -:   90:
+function ordered1 called 2 returned 100% blocks executed 100%
+        2:   91:Medicament* ordered1(Service* service, int tip_ordonare) {
+        -:   92:    static Medicament medicamente_ordonate[100];
+       16:   93:    for (int i=0; i<service->repo->stoc_curent; i++) {
+        2:   93-block  0
+       16:   93-block  1
+branch  0 taken 14
+branch  1 taken 2 (fallthrough)
+       14:   94:        medicamente_ordonate[i] = service->repo->stoc[i];
+       14:   94-block  0
+        -:   95:    }
+        -:   96:
+       14:   97:    for (int i = 0; i<service->repo->stoc_curent-1; i++) {
+        2:   97-block  0
+       12:   97-block  1
+       14:   97-block  2
+branch  0 taken 12
+branch  1 taken 2 (fallthrough)
+       54:   98:        for(int j = i+1; j<service->repo->stoc_curent; j++) {
+       12:   98-block  0
+       42:   98-block  1
+       54:   98-block  2
+branch  0 taken 42
+branch  1 taken 12 (fallthrough)
+       42:   99:            if ((tip_ordonare == 1 && strcmp(medicamente_ordonate[i].nume, medicamente_ordonate[j].nume) > 0) ||
+       42:   99-block  0
+branch  0 taken 21 (fallthrough)
+branch  1 taken 21
+       21:   99-block  1
+branch  2 taken 9 (fallthrough)
+branch  3 taken 12
+       30:   99-block  2
+branch  4 taken 21 (fallthrough)
+branch  5 taken 9
+       21:  100:            (tip_ordonare == -1 && strcmp(medicamente_ordonate[i].nume, medicamente_ordonate[j].nume) < 0))
+       21:  100-block  0
+branch  0 taken 9 (fallthrough)
+branch  1 taken 12
+        -:  101:            {
+       21:  102:                Medicament temp = medicamente_ordonate[i];
+       21:  103:                medicamente_ordonate[i] = medicamente_ordonate[j];
+       21:  104:                medicamente_ordonate[j] = temp;
+       21:  104-block  0
+        -:  105:            }
+        -:  106:        }
+        -:  107:    }
+        -:  108:
+        2:  109:    return medicamente_ordonate;
+        2:  109-block  0
+        -:  110:}
+        -:  111:
+function ordered2 called 1 returned 100% blocks executed 100%
+        1:  112:Medicament* ordered2(Service* service, int tip_ordonare) {
+        -:  113:    static Medicament medicamente_ordonate[100];
+        8:  114:    for (int i=0; i<service->repo->stoc_curent; i++) {
+        1:  114-block  0
+        8:  114-block  1
+branch  0 taken 7
+branch  1 taken 1 (fallthrough)
+        7:  115:        medicamente_ordonate[i] = service->repo->stoc[i];
+        7:  115-block  0
+        -:  116:    }
+        -:  117:
+        7:  118:    for (int i = 0; i<service->repo->stoc_curent-1; i++) {
+        1:  118-block  0
+        6:  118-block  1
+        7:  118-block  2
+branch  0 taken 6
+branch  1 taken 1 (fallthrough)
+       27:  119:        for(int j = i+1; j<service->repo->stoc_curent; j++) {
+        6:  119-block  0
+       21:  119-block  1
+       27:  119-block  2
+branch  0 taken 21
+branch  1 taken 6 (fallthrough)
+       21:  120:            if (medicamente_ordonate[i].cantitate * tip_ordonare > medicamente_ordonate[j].cantitate * tip_ordonare) {
+       21:  120-block  0
+branch  0 taken 11 (fallthrough)
+branch  1 taken 10
+       11:  121:                Medicament temp = medicamente_ordonate[i];
+       11:  122:                medicamente_ordonate[i] = medicamente_ordonate[j];
+       11:  123:                medicamente_ordonate[j] = temp;
+       11:  123-block  0
+        -:  124:            }
+        -:  125:        }
+        -:  126:    }
+        -:  127:
+        1:  128:    return medicamente_ordonate;
+        1:  128-block  0
+        -:  129:}
