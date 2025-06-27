@@ -1,0 +1,4 @@
+/mnt/c/Users/Catalin/Downloads/cmake-3.30.8-linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /mnt/c/Users/Catalin/Documents/Lab3_SDA -B /mnt/c/Users/Catalin/Documents/Lab3_SDA/cmake-build-debug
+-- Configuring done (0.4s)
+-- Generating done (0.2s)
+-- Build files have been written to: /mnt/c/Users/Catalin/Documents/Lab3_SDA/cmake-build-debug
