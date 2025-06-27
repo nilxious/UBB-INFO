@@ -1,0 +1,9 @@
+#ifndef TESTS_H
+#define TESTS_H
+#include "Vector.h"
+void testAdd();
+void testUpdate();
+void testGetAll();
+void testGetByIndex();
+void vectorTests();
+#endif //TESTS_H
