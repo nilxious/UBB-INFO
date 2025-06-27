@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Lab2_SDA.dir/TestScurt.cpp.o CMakeFiles/Lab2_SDA.dir/TestExtins.cpp.o CMakeFiles/Lab2_SDA.dir/CP.cpp.o CMakeFiles/Lab2_SDA.dir/App.cpp.o -o Lab2_SDA
