@@ -1,0 +1,24 @@
+
+apare(E,[E|_]):-!.
+apare(E,[_|T]):-apare(E,T).
+
+
+candidat(N,N).
+candidat(N,E):-N>1,
+	       N1 is N-1,
+               candidat(N1,E).
+
+combinari(N,K,V,Rez):- candidat(N,E),
+                       comb_aux([E],K,1,N,V,Rez).
+
+comb_aux(C,K,K,_,_,C).
+
+comb_aux([H|C],K,Lg,N,V,Rez):- candidat(N,E),
+                               \+ apare(E,[H|C]),
+                               E<H,
+                               abs(H-E) >= V,
+                               Lg1 is Lg+1,
+                               Lg1 =< K,
+                               comb_aux([H,E|C],K,Lg1,N,V,Rez).
+
+main(N,K,V,Rez):-findall(Comb,combinari(N,K,V,Comb),Rez).
