@@ -1,0 +1,5 @@
+Duck,2,quacker,flyfast@pondmail.com,wingit,SWIMMING,3.5,4.2
+Persoana,3,mihaelap,miha.p@outlook.com,blueberry123,Popa,Mihaela,2001-11-30,Designer,8
+Duck,4,stormwing,sky.duck@mail.com,windrush,FLYING,8.0,6.5
+Duck,5,mrquack,helloquack@gmail.com,ducky777,FLYING_AND_SWIMMING,42.5,38.0
+Duck,9,ducklol,emailrandom@gmail.com,duckxD,FLYING,9999.0,1000000.0
