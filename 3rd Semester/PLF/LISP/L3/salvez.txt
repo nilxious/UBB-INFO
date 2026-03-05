@@ -1,0 +1,11 @@
+(defun interclasare(L1 L2)
+	(cond
+		( (null L1) (numerici L2) )
+		( (null L2) (numerici L1) )
+		( ( not (numberp (car L1)) ) (interclasare (cdr L1) L2) )
+		( ( not (numberp (car L2)) ) (interclasare L1 (cdr L2)) )
+		( (= (car L1) (car L2)) (cons (cons (car L1) (car L1)) (interclasare (cdr L1) (cdr L2)) )
+		( (> (car L1) (car L2)) (cons (car L2) (interclasare L1 (cdr L2)) ) )
+		( (< (car L1) (car L2)) (cons (car L1) (interclasare (cdr L1) L2)) ) )
+	)
+)
